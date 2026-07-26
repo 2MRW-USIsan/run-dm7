@@ -5,10 +5,10 @@ import { FabItem, LabelItem } from "../utils/ui";
 interface TopPageHeaderProps {
   props: Comps.TopPageHeaderComps;
 }
-export function TopPageHeader({ props: {} }: TopPageHeaderProps) {
+export function TopPageHeader({ props: { header } }: TopPageHeaderProps) {
   return (
     <AppbarShell>
-      <LabelItem props={undefined} />
+      <LabelItem props={header} />
     </AppbarShell>
   );
 }
@@ -16,10 +16,10 @@ export function TopPageHeader({ props: {} }: TopPageHeaderProps) {
 interface TopPageFooterProps {
   props: Comps.TopPageFooterComps;
 }
-export function TopPageFooter({ props: {} }: TopPageFooterProps) {
+export function TopPageFooter({ props: { floating } }: TopPageFooterProps) {
   return (
     <ToolbarShell>
-      <FabItem props={undefined} />
+      <FabItem props={floating} />
     </ToolbarShell>
   );
 }

@@ -1,5 +1,17 @@
 import * as Comps from "@/types/components";
-import { Stack, AppBar, Toolbar } from "@mui/material";
+import {
+  Stack,
+  AppBar,
+  Toolbar,
+  Modal,
+  Grid,
+  Table,
+  TableContainer,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 /**
  * Shell
@@ -66,45 +78,59 @@ interface GridShellProps {
   Size?: number | "CONTAIER";
   children: React.ReactNode;
 }
-export function GridShell({ children }: GridShellProps) {
-  return <Stack>{children}</Stack>;
+export function GridShell({ Size, children }: GridShellProps) {
+  const isContainer = isNaN(Number(Size)) ? true : false;
+  const gridSize = isFinite(Number(Size)) ? Number(Size) : undefined;
+  return (
+    <Grid container={isContainer} size={gridSize}>
+      {children}
+    </Grid>
+  );
 }
 
 interface ModalShellProps {
   props: Comps.ModalShellComps;
   children: React.ReactNode;
 }
-export function ModalShell({ children }: ModalShellProps) {
-  return <Stack>{children}</Stack>;
+export function ModalShell({ props: { open, onClose }, children }: ModalShellProps) {
+  return (
+    <Modal open={open} onClose={onClose}>
+      <Stack>{children}</Stack>
+    </Modal>
+  );
 }
 
 interface TableShellProps {
   children: React.ReactNode;
 }
 export function TableShell({ children }: TableShellProps) {
-  return <Stack>{children}</Stack>;
+  return (
+    <TableContainer>
+      <Table>{children}</Table>
+    </TableContainer>
+  );
 }
 interface TableHeadShellProps {
   children: React.ReactNode;
 }
 export function TableHeadShell({ children }: TableHeadShellProps) {
-  return <Stack>{children}</Stack>;
+  return <TableHead>{children}</TableHead>;
 }
 interface TableBodyShellProps {
   children: React.ReactNode;
 }
 export function TableBodyShell({ children }: TableBodyShellProps) {
-  return <Stack>{children}</Stack>;
+  return <TableBody>{children}</TableBody>;
 }
 interface TableRecordShellProps {
   children: React.ReactNode;
 }
 export function TableRecordShell({ children }: TableRecordShellProps) {
-  return <Stack>{children}</Stack>;
+  return <TableRow>{children}</TableRow>;
 }
 interface TableCellShellProps {
   children: React.ReactNode;
 }
 export function TableCellShell({ children }: TableCellShellProps) {
-  return <Stack>{children}</Stack>;
+  return <TableCell>{children}</TableCell>;
 }

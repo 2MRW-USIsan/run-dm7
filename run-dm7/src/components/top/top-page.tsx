@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as Comps from "@/types/components";
 import { PageShell } from "../utils/shell";
@@ -6,11 +6,9 @@ import { TopPageBodies, TopPageModals } from "./top-contents";
 import { TopPageHeader, TopPageFooter } from "./top-frame";
 
 interface TopPageProps {
-  props: Comps.TopPagePropsComps;
+  props: Comps.TopPageComps;
 }
-export function TopPage({
-  props: { header, bodies, footer, modals },
-}: TopPageProps) {
+export function TopPage({ props: { header, bodies, footer, modals } }: TopPageProps) {
   return (
     <PageShell>
       <TopPageHeader props={header} />

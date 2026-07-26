@@ -24,10 +24,10 @@ export function NotionColorsModal({ props: { colorsItem, colorsNote } }: NotionC
   return (
     <FieldShell Row Flex={"CONTAIER"}>
       <FieldShell Flex={1}>
-        <NotionNotesField props={colorsNote} />
+        <NotionColorsField props={colorsItem} />
       </FieldShell>
       <FieldShell Flex={1}>
-        <NotionColorsField props={colorsItem} />
+        <NotionNotesField props={colorsNote} />
       </FieldShell>
     </FieldShell>
   );
@@ -88,10 +88,7 @@ export function NotionColorsGrid({ props: { colorCode } }: NotionColorsGridProps
     <GridShell Size={3}>
       <CardShell>
         <FieldShell Column Flex={"CONTAIER"}>
-          <FieldShell Row Flex={1}>
-            <ColorsItem props={colorCode} />
-          </FieldShell>
-          <LabelItem props={colorCode} />
+          <ColorsItem props={colorCode} />
         </FieldShell>
       </CardShell>
     </GridShell>

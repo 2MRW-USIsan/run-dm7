@@ -136,10 +136,10 @@ export function MainChipField({ props: { label, chips } }: MainChipFieldProps) {
 interface MainChipItemProps {
   props: Comps.MainChipItemComps;
 }
-export function MainChipItem({ props: { chips } }: MainChipItemProps) {
+export function MainChipItem({ props: { item } }: MainChipItemProps) {
   return (
     <FieldShell Row Flex={"CONTAIER"}>
-      <ChipsItem props={chips} />
+      {item && <ChipsItem props={item} />}
     </FieldShell>
   );
 }
