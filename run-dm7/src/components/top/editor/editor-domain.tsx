@@ -1,7 +1,7 @@
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { FieldShell } from "../utils/shell";
-import { EditorFormsListField, EditorNotesItemField } from "../editor/editor-sheet";
-import { EditorModalHeaderField, EditorPromptItemField } from "../editor/editor-modal";
+import { EditorFormsListField, EditorNotesItemField } from "./editor-sheet";
+import { EditorModalHeaderField, EditorPromptItemField } from "./editor-modal";
 
 interface EditorSheetProps {
   props: Comps.EditorSheetComps;

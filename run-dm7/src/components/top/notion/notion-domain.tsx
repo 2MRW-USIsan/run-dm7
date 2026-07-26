@@ -1,7 +1,7 @@
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { FieldShell } from "../utils/shell";
-import { NotionHeaderField, NotionArticleField } from "../notion/notion-sheet";
-import { NotionArticleModal, NotionColorsModal } from "../notion/notion-modal";
+import { NotionHeaderField, NotionArticleField } from "./notion-sheet";
+import { NotionArticleModal, NotionColorsModal } from "./notion-modal";
 
 interface NotionSheetProps {
   props: Comps.NotionSheetComps;

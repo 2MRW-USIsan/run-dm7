@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 import { useEditorReducers } from "./reducers/useEditorReducers";
 import { useNotionReducers } from "./reducers/useNotionReducers";
 import { usePresetReducers } from "./reducers/usePresetReducers";

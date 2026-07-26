@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 import { useEditorServices } from "./services/useEditorServices";
 import { useNotionServices } from "./services/useNotionServices";
 import { usePresetServices } from "./services/usePresetServices";

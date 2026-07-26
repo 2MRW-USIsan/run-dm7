@@ -1,4 +1,4 @@
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { CardShell, FieldShell, GridShell } from "../utils/shell";
 import { ImageItem, LabelItem, ButtonItem, InputItem, ColorsItem } from "../utils/ui";
 

@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 
 interface PresetHandlersProps {
   contexts: VMs.TopContexts;

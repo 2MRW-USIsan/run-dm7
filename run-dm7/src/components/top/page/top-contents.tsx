@@ -1,4 +1,4 @@
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { TabSelectItem } from "../utils/ui";
 import { ModalShell, Shell } from "../utils/shell";
 import { PresetSheet, PresetModal } from "../preset/preset-domain";

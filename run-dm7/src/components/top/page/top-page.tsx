@@ -1,6 +1,6 @@
 "use client";
 
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { PageShell } from "../utils/shell";
 import { TopPageBodies, TopPageModals } from "./top-contents";
 import { TopPageHeader, TopPageFooter } from "./top-frame";

@@ -1,6 +1,6 @@
 "use client";
 
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";

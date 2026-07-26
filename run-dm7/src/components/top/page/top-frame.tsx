@@ -1,4 +1,4 @@
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { AppbarShell, ToolbarShell } from "../utils/shell";
 import { FabItem, LabelItem } from "../utils/ui";
 

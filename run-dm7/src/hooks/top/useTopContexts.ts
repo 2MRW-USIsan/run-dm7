@@ -4,7 +4,7 @@ import { usePresetContexts } from "./contexts/usePresetContexts";
 import { useTopPageContexts } from "./contexts/useTopPageContexts";
 import { useTopReducers } from "./useTopReducers";
 import { useTopServices } from "./useTopServices";
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 
 interface TopContextsReturns {
   contexts:  VMs.TopContexts;

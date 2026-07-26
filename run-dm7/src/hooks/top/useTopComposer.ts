@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 import { useEditorComposer } from "./composer/useEditorComposer";
 import { useNotionComposer } from "./composer/useNotionComposer";
 import { usePresetComposer } from "./composer/usePresetComposer";

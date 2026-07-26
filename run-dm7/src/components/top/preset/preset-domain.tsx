@@ -1,7 +1,7 @@
-import * as Comps from "@/types/components";
+import * as Comps from "@/types/top/components";
 import { FieldShell } from "../utils/shell";
-import { PresetTemplatesField, PresetTableDataField } from "../preset/preset-sheet";
-import { PresetModalHeaderField, PresetFileManagerField } from "../preset/preset-modal";
+import { PresetTemplatesField, PresetTableDataField } from "./preset-sheet";
+import { PresetModalHeaderField, PresetFileManagerField } from "./preset-modal";
 
 interface PresetSheetProps {
   props: Comps.PresetSheetComps;

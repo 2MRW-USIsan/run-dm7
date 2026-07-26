@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 import { useTopComposer } from "./useTopComposer";
 import { useTopContexts } from "./useTopContexts";
 import { useTopControls } from "./useTopControls";

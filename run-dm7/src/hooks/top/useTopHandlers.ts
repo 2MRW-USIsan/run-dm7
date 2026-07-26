@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 import { useEditorHandlers } from "./handlers/useEditorHandlers";
 import { useNotionHandlers } from "./handlers/useNotionHandlers";
 import { usePresetHandlers } from "./handlers/usePresetHandlers";

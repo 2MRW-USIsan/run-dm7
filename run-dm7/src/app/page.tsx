@@ -1,7 +1,7 @@
 "use client";
 
-import * as Comps from "@/types/components";
-import { TopPage } from "@/components/top/top-page";
+import * as Comps from "@/types/top/components";
+import { TopPage } from "@/components/top/page/top-page";
 import { useTopViewModel } from "@/hooks/top/useTopViewModel";
 
 export default function Top() {

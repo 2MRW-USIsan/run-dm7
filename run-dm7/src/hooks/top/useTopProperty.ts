@@ -1,4 +1,4 @@
-import * as VMs from "@/types/viewmodels";
+import * as VMs from "@/types/top/viewmodels";
 import { useEditorProperty } from "./property/useEditorProperty";
 import { useNotionProperty } from "./property/useNotionProperty";
 import { usePresetProperty } from "./property/usePresetProperty";
