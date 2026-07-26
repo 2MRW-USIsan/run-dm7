@@ -1,7 +1,8 @@
 "use client";
 
-import { TopPage } from "@/components/top/top-page";
 import * as Comps from "@/types/components";
+import { TopPage } from "@/components/top/top-page";
+import { useTopViewModel } from "@/hooks/top/useTopViewModel";
 
 export default function Top() {
   const props: Comps.TopPageComps = {
@@ -20,5 +21,6 @@ export default function Top() {
       editor: undefined,
     },
   };
+  const { viewmodels: pageData } = useTopViewModel();
   return <TopPage props={props} />;
 }
