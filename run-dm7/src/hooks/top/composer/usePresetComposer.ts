@@ -1,8 +1,8 @@
 import * as VMs from "@/types/top/viewmodels";
 
 interface PresetComposerProps {
-  handlers: {};
-  property: {};
+  handlers: VMs.TopHandlers;
+  property: VMs.TopProperty;
 }
 interface PresetComposerReturns {
   composed: VMs.PresetComposed;
@@ -11,8 +11,8 @@ interface PresetComposerReturns {
 export function usePresetComposer({ handlers, property }: PresetComposerProps): PresetComposerReturns {
   return {
     composed: {
-      bodies: {},
-      modals: {},
-    } as VMs.PresetComposed,
+      bodies: { preset: undefined },
+      modals: { preset: undefined },
+    },
   };
 }

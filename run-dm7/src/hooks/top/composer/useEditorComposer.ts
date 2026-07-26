@@ -1,8 +1,8 @@
 import * as VMs from "@/types/top/viewmodels";
 
 interface EditorComposerProps {
-  handlers: {};
-  property: {};
+  handlers: VMs.TopHandlers;
+  property: VMs.TopProperty;
 }
 interface EditorComposerReturns {
   composed: VMs.EditorComposed;
@@ -11,8 +11,8 @@ interface EditorComposerReturns {
 export function useEditorComposer({ handlers, property }: EditorComposerProps): EditorComposerReturns {
   return {
     composed: {
-      bodies: {},
-      modals: {},
-    } as VMs.EditorComposed,
+      bodies: { editor: undefined },
+      modals: { editor: undefined },
+    },
   };
 }

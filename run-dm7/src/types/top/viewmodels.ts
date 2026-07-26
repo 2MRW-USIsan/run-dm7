@@ -13,10 +13,30 @@ export type TopComposed = {
   editor: EditorComposed;
 };
 
-export type TopPageComposed = {};
-export type PresetComposed = {};
-export type NotionComposed = {};
-export type EditorComposed = {};
+export type TopPageComposed = {
+  frames: {
+    header: Comps.TopPageHeaderComps;
+    footer: Comps.TopPageFooterComps;
+  };
+  bodies: {
+    selector: Comps.TabSelectItemComps;
+  };
+  modals: {
+    overlay: Comps.ModalShellComps;
+  };
+};
+export type PresetComposed = {
+  bodies: { preset: Comps.PresetSheetComps | undefined };
+  modals: { preset: Comps.PresetModalComps | undefined };
+};
+export type NotionComposed = {
+  bodies: { notion: Comps.NotionSheetComps | undefined };
+  modals: { notion: Comps.NotionModalComps | undefined };
+};
+export type EditorComposed = {
+  bodies: { editor: Comps.EditorSheetComps | undefined };
+  modals: { editor: Comps.EditorModalComps | undefined };
+};
 
 export type TopProperty = {
   page: Props.TopPageProperty;
@@ -38,10 +58,20 @@ export type TopContexts = {
   editor: EditorContexts;
 };
 
-export type TopPageContexts = {};
-export type PresetContexts = {};
-export type NotionContexts = {};
-export type EditorContexts = {};
+export type TopPageContexts = {
+  selector: {
+    value: number;
+    dispatch: (value: number) => void;
+  };
+  modals: {
+    preset: { show: boolean; dispatch: (show: boolean) => void };
+    notion: { show: boolean; dispatch: (show: boolean) => void };
+    editor: { show: boolean; dispatch: (show: boolean) => void };
+  };
+};
+export type PresetContexts = Record<string, never>;
+export type NotionContexts = Record<string, never>;
+export type EditorContexts = Record<string, never>;
 
 export type TopReducers = {
   page: Rdcrs.TopPageReducers;

@@ -1,12 +1,29 @@
 import * as VMs from "@/types/top/viewmodels";
+import * as Hndls from "@/types/top/handlers";
 
 interface TopPageHandlersProps {
   contexts: VMs.TopContexts;
 }
 interface TopPageHandlersReturns {
-  handlers: {};
+  handlers: Hndls.TopPageHandlers;
 }
 
 export function useTopPageHandlers({ contexts }: TopPageHandlersProps): TopPageHandlersReturns {
-  return { handlers: {} };
+  const ctx = contexts.page;
+  return {
+    handlers: {
+      selector: {
+        onChange: (_event, value) => ctx.selector.dispatch(value),
+      },
+      modals: {
+        overlay: {
+          onClose: () => {
+            ctx.modals.preset.dispatch(false);
+            ctx.modals.notion.dispatch(false);
+            ctx.modals.editor.dispatch(false);
+          },
+        },
+      },
+    },
+  };
 }
