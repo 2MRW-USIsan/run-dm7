@@ -1,6 +1,8 @@
 import * as VMs from "@/types/top/viewmodels";
 import * as Props from "@/types/top/properties";
 
+const APP_TITLE = "Run DM7";
+const FAB_LABEL = "Generate";
 const SELECTOR_LIST = ["Preset", "Notion", "Editor"];
 
 interface TopPagePropertyProps {
@@ -14,17 +16,14 @@ export function useTopPageProperty({ contexts }: TopPagePropertyProps): TopPageP
   const ctx = contexts.page;
   return {
     property: {
+      header: { item: APP_TITLE },
+      floating: { label: FAB_LABEL },
       selector: {
         value: ctx.selector.value,
         list: SELECTOR_LIST,
       },
-      showData: {
-        preset: ctx.selector.value === 0,
-        notion: ctx.selector.value === 1,
-        editor: ctx.selector.value === 2,
-        presetModal: ctx.modals.preset.show,
-        notionModal: ctx.modals.notion.show,
-        editorModal: ctx.modals.editor.show,
+      overlay: {
+        open: ctx.modals.preset.show || ctx.modals.notion.show || ctx.modals.editor.show,
       },
     },
   };

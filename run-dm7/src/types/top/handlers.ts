@@ -1,14 +1,9 @@
 import * as Comps from "@/types/top/components";
 
 export type TopPageHandlers = {
-  selector: {
-    onChange: Comps.TabSelectItemComps["onChange"];
-  };
-  modals: {
-    overlay: {
-      onClose: () => void;
-    };
-  };
+  floating: Pick<Comps.FabItemComps, "onClick">;
+  selector: Pick<Comps.TabSelectItemComps, "onChange">;
+  overlay: Pick<Comps.ModalShellComps, "onClose">;
 };
 export type PresetHandlers = Record<string, never>;
 export type NotionHandlers = Record<string, never>;

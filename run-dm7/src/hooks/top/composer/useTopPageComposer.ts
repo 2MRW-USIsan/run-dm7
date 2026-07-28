@@ -1,8 +1,5 @@
 import * as VMs from "@/types/top/viewmodels";
 
-const APP_TITLE = "Run DM7";
-const FAB_LABEL = "Generate";
-
 interface TopPageComposerProps {
   handlers: VMs.TopHandlers;
   property: VMs.TopProperty;
@@ -12,28 +9,14 @@ interface TopPageComposerReturns {
 }
 
 export function useTopPageComposer({ handlers, property }: TopPageComposerProps): TopPageComposerReturns {
-  const h = handlers.page;
-  const p = property.page;
-
   return {
     composed: {
       frames: {
-        header: { header: { item: APP_TITLE } },
-        footer: { floating: { label: FAB_LABEL } },
+        header: { header: { ...property.page.header } },
+        footer: { floating: { ...property.page.floating, ...handlers.page.floating } },
       },
-      bodies: {
-        selector: {
-          value: p.selector.value,
-          list: p.selector.list,
-          onChange: h.selector.onChange,
-        },
-      },
-      modals: {
-        overlay: {
-          open: p.showData.presetModal || p.showData.notionModal || p.showData.editorModal,
-          onClose: h.modals.overlay.onClose,
-        },
-      },
+      bodies: { selector: { ...property.page.selector, ...handlers.page.selector } },
+      modals: { overlay: { ...property.page.overlay, ...handlers.page.overlay } },
     },
   };
 }

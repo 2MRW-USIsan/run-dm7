@@ -12,16 +12,15 @@ export function useTopPageHandlers({ contexts }: TopPageHandlersProps): TopPageH
   const ctx = contexts.page;
   return {
     handlers: {
+      floating: { onClick: undefined },
       selector: {
         onChange: (_event, value) => ctx.selector.dispatch(value),
       },
-      modals: {
-        overlay: {
-          onClose: () => {
-            ctx.modals.preset.dispatch(false);
-            ctx.modals.notion.dispatch(false);
-            ctx.modals.editor.dispatch(false);
-          },
+      overlay: {
+        onClose: () => {
+          ctx.modals.preset.dispatch(false);
+          ctx.modals.notion.dispatch(false);
+          ctx.modals.editor.dispatch(false);
         },
       },
     },
