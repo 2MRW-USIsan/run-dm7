@@ -85,7 +85,7 @@ export function PresetTableBodies({ props: { itemList } }: PresetTableBodiesProp
 interface PresetTableRecordProps {
   props: Comps.PresetTableRecordComps;
 }
-export function PresetTableRecord({ props: { name, exclude, daleted } }: PresetTableRecordProps) {
+export function PresetTableRecord({ props: { name, exclude, deleted } }: PresetTableRecordProps) {
   return (
     <TableRecordShell>
       <TableCellShell>
@@ -95,7 +95,7 @@ export function PresetTableRecord({ props: { name, exclude, daleted } }: PresetT
         <CheckItem props={exclude} />
       </TableCellShell>
       <TableCellShell>
-        <CheckItem props={daleted} />
+        <CheckItem props={deleted} />
       </TableCellShell>
     </TableRecordShell>
   );

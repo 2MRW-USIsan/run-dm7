@@ -11,8 +11,28 @@ interface NotionPropertyReturns {
 export function useNotionProperty({ contexts: _contexts }: NotionPropertyProps): NotionPropertyReturns {
   return {
     property: {
-      bodies: { notion: undefined },
-      modals: { notion: undefined },
+      bodies: {
+        showBodies: false,
+        header: { reload: { label: "" } },
+        articleItem: { keyList: [], itemList: [] },
+      },
+      modals: {
+        articleItem: {
+          showModal: false,
+          articleItem: {
+            image: undefined,
+            title: { item: "" },
+            descs: { item: "" },
+            links: { label: "" },
+          },
+          articleNote: { label: { item: "" }, close: { label: "" }, notes: { value: "", rows: 1 } },
+        },
+        colorsItem: {
+          showModal: false,
+          colorsItem: { itemList: [] },
+          colorsNote: { label: { item: "" }, close: { label: "" }, notes: { value: "", rows: 1 } },
+        },
+      },
     },
   };
 }
