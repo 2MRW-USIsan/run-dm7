@@ -8,11 +8,11 @@ interface NotionComposerReturns {
   composed: VMs.NotionComposed;
 }
 
-export function useNotionComposer({ handlers, property }: NotionComposerProps): NotionComposerReturns {
+export function useNotionComposer({ handlers: _handlers, property }: NotionComposerProps): NotionComposerReturns {
   return {
     composed: {
-      bodies: { notion: undefined },
-      modals: { notion: undefined },
+      bodies: { ...property.notion.bodies },
+      modals: { ...property.notion.modals },
     },
   };
 }

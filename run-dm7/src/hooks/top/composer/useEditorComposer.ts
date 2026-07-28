@@ -8,11 +8,11 @@ interface EditorComposerReturns {
   composed: VMs.EditorComposed;
 }
 
-export function useEditorComposer({ handlers, property }: EditorComposerProps): EditorComposerReturns {
+export function useEditorComposer({ handlers: _handlers, property }: EditorComposerProps): EditorComposerReturns {
   return {
     composed: {
-      bodies: { editor: undefined },
-      modals: { editor: undefined },
+      bodies: { ...property.editor.bodies },
+      modals: { ...property.editor.modals },
     },
   };
 }

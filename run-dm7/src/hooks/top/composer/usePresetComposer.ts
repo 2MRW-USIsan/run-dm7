@@ -8,11 +8,11 @@ interface PresetComposerReturns {
   composed: VMs.PresetComposed;
 }
 
-export function usePresetComposer({ handlers, property }: PresetComposerProps): PresetComposerReturns {
+export function usePresetComposer({ handlers: _handlers, property }: PresetComposerProps): PresetComposerReturns {
   return {
     composed: {
-      bodies: { preset: undefined },
-      modals: { preset: undefined },
+      bodies: { ...property.preset.bodies },
+      modals: { ...property.preset.modals },
     },
   };
 }
