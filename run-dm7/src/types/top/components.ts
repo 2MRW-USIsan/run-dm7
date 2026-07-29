@@ -12,11 +12,11 @@ export interface TopPageDDLs {
         selector: TabSelectItemComps;
         categories: Nullable<{
           headerItem: { itemList: LabelItemComps[] };
-          bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; daleted: CheckItemComps }[] };
+        bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; deleted: CheckItemComps }[] };
         }>;
         directions: Nullable<{
           headerItem: { itemList: LabelItemComps[] };
-          bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; daleted: CheckItemComps }[] };
+        bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; deleted: CheckItemComps }[] };
         }>;
       };
     }>;
