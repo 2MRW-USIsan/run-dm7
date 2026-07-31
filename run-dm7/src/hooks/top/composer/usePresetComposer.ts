@@ -65,6 +65,7 @@ export function usePresetComposer({ handlers, property }: PresetComposerProps): 
     },
     tableData: {
       selector: { ...property.preset.bodies.tableData.selector, ...handlers.preset.bodies.tableData.selector },
+      paginate: { ...property.preset.bodies.tableData.paginate, ...handlers.preset.bodies.tableData.paginate },
       categories: property.preset.bodies.categories.showTable ? categoriesTable : undefined,
       directions: property.preset.bodies.directions.showTable ? directionsTable : undefined,
     },

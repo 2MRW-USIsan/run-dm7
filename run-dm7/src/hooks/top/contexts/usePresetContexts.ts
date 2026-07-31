@@ -1,11 +1,18 @@
+import * as VMs from "@/types/top/viewmodels";
+
 interface PresetContextsProps {
-  reducers: {};
-  services: {};
+  reducers: VMs.TopReducers;
+  services: VMs.TopServices;
 }
 interface PresetContextsReturns {
-  composed: {};
+  composed: VMs.PresetContexts;
 }
 
 export function usePresetContexts({ reducers, services }: PresetContextsProps): PresetContextsReturns {
-  return { composed: {} };
+  return {
+    composed: {
+      reducer: reducers.preset,
+      service: services.preset,
+    },
+  };
 }

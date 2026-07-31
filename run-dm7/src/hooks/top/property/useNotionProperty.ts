@@ -1,5 +1,6 @@
 import * as VMs from "@/types/top/viewmodels";
 import * as Props from "@/types/top/properties";
+import { INFORMATION } from "@/hooks/top/information";
 
 interface NotionPropertyProps {
   contexts: VMs.TopContexts;
@@ -9,35 +10,36 @@ interface NotionPropertyReturns {
 }
 
 export function useNotionProperty({ contexts }: NotionPropertyProps): NotionPropertyReturns {
+  const s = contexts.notion.reducer.state;
   const bodiesProperties = {
-    showBodies: contexts.notion.reducer.state.notionInfo.showBodies,
+    showBodies: s.notionInfo.showBodies,
     header: { reload: { label: INFORMATION.TOP.BUTTON.NOTION.RELOAD } },
     articleItem: {
-      keyList: contexts.notion.reducer.state.notionInfo.keyList,
-      itemList: contexts.notion.reducer.state.notionInfo.itemList,
+      keyList: s.notionInfo.keyList,
+      itemList: s.notionInfo.itemList,
     },
   };
   const modalsProperties = {
     articleItem: {
-      showModal: contexts.notion.reducer.state.article.showArticle,
-      articleItem: contexts.notion.reducer.state.article.articleItem,
+      showModal: s.article.showArticle,
+      articleItem: s.article.articleItem,
       articleNote: {
         label: { item: INFORMATION.TOP.LABEL.NOTION.ARTICLE_NOTE },
         close: { label: INFORMATION.TOP.BUTTON.NOTION.CLOSE },
         notes: {
-          value: contexts.notion.reducer.state.article.notes,
+          value: s.article.notes,
           rows: INFORMATION.TOP.FORM_ROWS.NOTION.ARTICLE_NOTE,
         },
       },
     },
     colorsItem: {
-      showModal: contexts.notion.reducer.state.colors.showColors,
-      colorsItem: { itemList: contexts.notion.reducer.state.colors.itemList },
+      showModal: s.colors.showColors,
+      colorsItem: { itemList: s.colors.itemList },
       colorsNote: {
         label: { item: INFORMATION.TOP.LABEL.NOTION.COLORS_NOTE },
         close: { label: INFORMATION.TOP.BUTTON.NOTION.CLOSE },
         notes: {
-          value: contexts.notion.reducer.state.colors.notes,
+          value: s.colors.notes,
           rows: INFORMATION.TOP.FORM_ROWS.NOTION.COLORS_NOTE,
         },
       },

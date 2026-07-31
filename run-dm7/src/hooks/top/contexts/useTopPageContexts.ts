@@ -8,17 +8,18 @@ interface TopPageContextsReturns {
   composed: VMs.TopPageContexts;
 }
 
-export function useTopPageContexts(_props: TopPageContextsProps): TopPageContextsReturns {
+export function useTopPageContexts({ reducers }: TopPageContextsProps): TopPageContextsReturns {
+  const page = reducers.page;
   return {
     composed: {
       selector: {
-        value: 0,
-        dispatch: () => {},
+        value: page.state.selectSheet,
+        dispatch: page.dispatch.selectSheet,
       },
       modals: {
-        preset: { show: false, dispatch: () => {} },
-        notion: { show: false, dispatch: () => {} },
-        editor: { show: false, dispatch: () => {} },
+        preset: { show: page.state.openPreset, dispatch: page.dispatch.openPreset },
+        notion: { show: page.state.openNotion, dispatch: page.dispatch.openNotion },
+        editor: { show: page.state.openEditor, dispatch: page.dispatch.openEditor },
       },
     },
   };

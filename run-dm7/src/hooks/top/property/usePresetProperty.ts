@@ -1,5 +1,6 @@
 import * as VMs from "@/types/top/viewmodels";
 import * as Props from "@/types/top/properties";
+import { INFORMATION } from "@/hooks/top/information";
 
 interface PresetPropertyProps {
   contexts: VMs.TopContexts;
@@ -9,45 +10,53 @@ interface PresetPropertyReturns {
 }
 
 export function usePresetProperty({ contexts }: PresetPropertyProps): PresetPropertyReturns {
+  const s = contexts.preset.reducer.state;
+  const totalLength =
+    s.presetInfo.selectTable === 0 ? s.categories.bodiesList.length : s.directions.bodiesList.length;
   const bodiesProperties = {
-    showBodies: contexts.preset.reducer.state.presetInfo.showBodies,
+    showBodies: s.presetInfo.showBodies,
     templates: {
       positive: {
         info: { label: { item: INFORMATION.TOP.LABEL.PRESET.POSITIVE } },
         header: {
-          value: contexts.preset.reducer.state.templates.positive,
+          value: s.templates.positive,
           rows: INFORMATION.TOP.FORM_ROWS.PRESET.POSITIVE,
         },
       },
       negative: {
         info: { label: { item: INFORMATION.TOP.LABEL.PRESET.NEGATIVE } },
         header: {
-          value: contexts.preset.reducer.state.templates.negative,
+          value: s.templates.negative,
           rows: INFORMATION.TOP.FORM_ROWS.PRESET.NEGATIVE,
         },
       },
     },
     tableData: {
       selector: {
-        value: contexts.preset.reducer.state.presetInfo.selectTable,
-        list: INFORMATION.TOP.LIST.PRESET.TABLE_SELECTOR,
+        value: s.presetInfo.selectTable,
+        list: [...INFORMATION.TOP.LIST.PRESET.TABLE_SELECTOR],
+      },
+      paginate: {
+        totalLength,
+        currentPage: s.presetInfo.currentPage,
+        rowsPerPage: s.presetInfo.rowsPerPage,
       },
     },
     categories: {
-      showTable: contexts.preset.reducer.state.categories.showTable,
-      headerList: INFORMATION.TOP.LIST.PRESET.TABLE_HEADER,
-      keyList: contexts.preset.reducer.state.categories.keyList,
-      bodiesList: contexts.preset.reducer.state.categories.bodiesList,
+      showTable: s.categories.showTable,
+      headerList: INFORMATION.TOP.LIST.PRESET.TABLE_HEADER as Props.PresetProperty["bodies"]["categories"]["headerList"],
+      keyList: s.categories.keyList,
+      bodiesList: s.categories.bodiesList,
     },
     directions: {
-      showTable: contexts.preset.reducer.state.directions.showTable,
-      headerList: INFORMATION.TOP.LIST.PRESET.TABLE_HEADER,
-      keyList: contexts.preset.reducer.state.directions.keyList,
-      bodiesList: contexts.preset.reducer.state.directions.bodiesList,
+      showTable: s.directions.showTable,
+      headerList: INFORMATION.TOP.LIST.PRESET.TABLE_HEADER as Props.PresetProperty["bodies"]["directions"]["headerList"],
+      keyList: s.directions.keyList,
+      bodiesList: s.directions.bodiesList,
     },
   };
   const modalsProperties = {
-    showModals: contexts.preset.reducer.state.presetInfo.showModals,
+    showModals: s.presetInfo.showModals,
     header: {
       info: { label: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_HEADER } },
       close: { label: INFORMATION.TOP.BUTTON.PRESET.CLOSE },
@@ -56,7 +65,7 @@ export function usePresetProperty({ contexts }: PresetPropertyProps): PresetProp
       info: {
         title: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_TEMPLATES },
         label: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_SRC_LABELS },
-        sources: { item: contexts.preset.reducer.state.templates.templatesSource },
+        sources: { item: s.templates.templatesSource },
       },
       exports: { label: INFORMATION.TOP.BUTTON.PRESET.EXPORTS },
       uploads: { label: INFORMATION.TOP.BUTTON.PRESET.UPLOADS },
@@ -65,7 +74,7 @@ export function usePresetProperty({ contexts }: PresetPropertyProps): PresetProp
       info: {
         title: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_CATEGORIES },
         label: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_SRC_LABELS },
-        sources: { item: contexts.preset.reducer.state.categories.categoriesSource },
+        sources: { item: s.categories.categoriesSource },
       },
       exports: { label: INFORMATION.TOP.BUTTON.PRESET.EXPORTS },
       uploads: { label: INFORMATION.TOP.BUTTON.PRESET.UPLOADS },
@@ -74,7 +83,7 @@ export function usePresetProperty({ contexts }: PresetPropertyProps): PresetProp
       info: {
         title: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_DIRECTIONS },
         label: { item: INFORMATION.TOP.LABEL.PRESET.MODALS_SRC_LABELS },
-        sources: { item: contexts.preset.reducer.state.directions.directionsSource },
+        sources: { item: s.directions.directionsSource },
       },
       exports: { label: INFORMATION.TOP.BUTTON.PRESET.EXPORTS },
       uploads: { label: INFORMATION.TOP.BUTTON.PRESET.UPLOADS },

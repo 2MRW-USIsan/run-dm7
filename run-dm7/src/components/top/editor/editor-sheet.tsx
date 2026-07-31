@@ -128,7 +128,7 @@ export function MainChipField({ props: { label, chips } }: MainChipFieldProps) {
     <FieldShell Row Flex={"CONTAIER"}>
       <LabelItem props={label} />
       <FieldShell Flex={1}>
-        <MainChipField props={chips} />
+        <MainChipItem props={chips} />
       </FieldShell>
     </FieldShell>
   );
@@ -151,7 +151,7 @@ export function SubChipsField({ props: { label, chips } }: SubChipsFieldProps) {
     <FieldShell Row Flex={"CONTAIER"}>
       <LabelItem props={label} />
       <FieldShell Flex={1}>
-        <SubChipsField props={chips} />
+        <SubChipsItem props={chips} />
       </FieldShell>
     </FieldShell>
   );

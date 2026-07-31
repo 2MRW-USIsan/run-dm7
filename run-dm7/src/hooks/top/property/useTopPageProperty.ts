@@ -1,9 +1,6 @@
 import * as VMs from "@/types/top/viewmodels";
 import * as Props from "@/types/top/properties";
-
-const APP_TITLE = "Run DM7";
-const FAB_LABEL = "Generate";
-const SELECTOR_LIST = ["Preset", "Notion", "Editor"];
+import { INFORMATION } from "@/hooks/top/information";
 
 interface TopPagePropertyProps {
   contexts: VMs.TopContexts;
@@ -17,14 +14,17 @@ export function useTopPageProperty({ contexts }: TopPagePropertyProps): TopPageP
     item: INFORMATION.TOP.LABEL.PAGE.APP_TITLE,
   };
   const floatingProperties = {
-    label: contexts.page.reducer.state.floatingLabel,
+    label: INFORMATION.TOP.LABEL.PAGE.FLOATING,
   };
   const selectorProperties = {
-    value: contexts.page.reducer.state.selectSheet,
-    list: INFORMATION.TOP.LIST.PAGE.SHEET_SELECTOR,
+    value: contexts.page.selector.value,
+    list: [...INFORMATION.TOP.LIST.PAGE.SHEET_SELECTOR],
   };
   const overlayProperties = {
-    open: contexts.page.reducer.state.openModal,
+    open:
+      contexts.page.modals.preset.show ||
+      contexts.page.modals.notion.show ||
+      contexts.page.modals.editor.show,
   };
   return {
     property: {

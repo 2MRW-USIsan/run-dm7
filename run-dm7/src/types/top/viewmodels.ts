@@ -58,7 +58,14 @@ export type TopContexts = {
   editor: EditorContexts;
 };
 
-export type TopPageContexts = { reducer: Rdcrs.TopPageReducers; service: Srvcs.TopPageServices };
+export type TopPageContexts = {
+  selector: { value: number; dispatch: (value: number) => void };
+  modals: {
+    preset: { show: boolean; dispatch: (open: boolean) => void };
+    notion: { show: boolean; dispatch: (open: boolean) => void };
+    editor: { show: boolean; dispatch: (open: boolean) => void };
+  };
+};
 export type PresetContexts = { reducer: Rdcrs.PresetReducers; service: Srvcs.PresetServices };
 export type NotionContexts = { reducer: Rdcrs.NotionReducers; service: Srvcs.NotionServices };
 export type EditorContexts = { reducer: Rdcrs.EditorReducers; service: Srvcs.EditorServices };

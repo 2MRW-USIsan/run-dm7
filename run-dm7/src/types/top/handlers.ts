@@ -13,6 +13,7 @@ export type PresetHandlers = {
     };
     tableData: {
       selector: Pick<Comps.TabSelectItemComps, "onChange">;
+      paginate: Pick<Comps.TablePagingItemComps, "onChange">;
     };
     categories: {
       bodiesList: {

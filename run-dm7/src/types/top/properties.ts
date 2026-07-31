@@ -21,6 +21,7 @@ export type PresetProperty = {
     };
     tableData: {
       selector: Pick<Comps.TabSelectItemComps, "value" | "list">;
+      paginate: Omit<Comps.TablePagingItemComps, "onChange">;
     };
     categories: {
       showTable: boolean;
