@@ -13,10 +13,30 @@ export type TopComposed = {
   editor: EditorComposed;
 };
 
-export type TopPageComposed = {};
-export type PresetComposed = {};
-export type NotionComposed = {};
-export type EditorComposed = {};
+export type TopPageComposed = {
+  frames: {
+    header: Comps.TopPageHeaderComps;
+    footer: Comps.TopPageFooterComps;
+  };
+  bodies: {
+    selector: Comps.TabSelectItemComps;
+  };
+  modals: {
+    overlay: Comps.ModalShellComps;
+  };
+};
+export type PresetComposed = {
+  bodies: { preset: Comps.PresetSheetComps | undefined };
+  modals: { preset: Comps.PresetModalComps | undefined };
+};
+export type NotionComposed = {
+  bodies: { notion: Comps.NotionSheetComps | undefined };
+  modals: { notion: Comps.NotionModalComps | undefined };
+};
+export type EditorComposed = {
+  bodies: { editor: Comps.EditorSheetComps | undefined };
+  modals: { editor: Comps.EditorModalComps | undefined };
+};
 
 export type TopProperty = {
   page: Props.TopPageProperty;
@@ -38,10 +58,10 @@ export type TopContexts = {
   editor: EditorContexts;
 };
 
-export type TopPageContexts = {};
-export type PresetContexts = {};
-export type NotionContexts = {};
-export type EditorContexts = {};
+export type TopPageContexts = { reducer: Rdcrs.TopPageReducers; service: Srvcs.TopPageServices };
+export type PresetContexts = { reducer: Rdcrs.PresetReducers; service: Srvcs.PresetServices };
+export type NotionContexts = { reducer: Rdcrs.NotionReducers; service: Srvcs.NotionServices };
+export type EditorContexts = { reducer: Rdcrs.EditorReducers; service: Srvcs.EditorServices };
 
 export type TopReducers = {
   page: Rdcrs.TopPageReducers;

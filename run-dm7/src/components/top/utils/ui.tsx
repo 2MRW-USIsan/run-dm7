@@ -5,7 +5,7 @@ import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
-import { Box, Button, Chip, Fab, Tab, Tabs, TextField, Typography } from "@mui/material";
+import { Box, Button, Chip, Fab, Tab, TablePagination, Tabs, TextField, Typography } from "@mui/material";
 import { useEffect, useRef } from "react";
 
 interface LabelItemProps {
@@ -76,6 +76,20 @@ export function TabSelectItem({ props: { value, list, onChange } }: TabSelectIte
         <Tab label={"--"} />
       )}
     </Tabs>
+  );
+}
+interface TablePagingItemProps {
+  props: Comps.TablePagingItemComps;
+}
+export function TablePagingItem({ props: { totalLength, currentPage, rowsPerPage, onChange } }: TablePagingItemProps) {
+  return (
+    <TablePagination
+      component="div"
+      count={totalLength}
+      page={currentPage}
+      onPageChange={onChange}
+      rowsPerPage={rowsPerPage}
+    />
   );
 }
 

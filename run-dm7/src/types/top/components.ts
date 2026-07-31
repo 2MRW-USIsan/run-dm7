@@ -10,13 +10,14 @@ export interface TopPageDDLs {
       };
       tableData: {
         selector: TabSelectItemComps;
+        paginate: TablePagingItemComps;
         categories: Nullable<{
           headerItem: { itemList: LabelItemComps[] };
-          bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; daleted: CheckItemComps }[] };
+          bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; deleted: CheckItemComps }[] };
         }>;
         directions: Nullable<{
           headerItem: { itemList: LabelItemComps[] };
-          bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; daleted: CheckItemComps }[] };
+          bodiesItem: { itemList: { name: LabelItemComps; exclude: CheckItemComps; deleted: CheckItemComps }[] };
         }>;
       };
     }>;
@@ -108,7 +109,7 @@ export type PresetTemplatesFieldComps = PresetSheetComps["templates"];
 export type PresetTableDataFieldComps = PresetSheetComps["tableData"];
 
 export type TemplatesTextFieldComps = PresetTemplatesFieldComps["positive" | "negative"];
-export type PresetTableDataItemComps = PresetTableDataFieldComps["categories" | "directions"];
+export type PresetTableDataItemComps = NonNullable<PresetTableDataFieldComps["categories" | "directions"]>;
 export type PresetTableHeaderComps = NonNullable<PresetTableDataItemComps>["headerItem"];
 export type PresetTableBodiesComps = NonNullable<PresetTableDataItemComps>["bodiesItem"];
 export type PresetTableRecordComps = PresetTableBodiesComps["itemList"][number];
@@ -158,6 +159,12 @@ export type TabSelectItemComps = {
   value: number;
   list: string[];
   onChange: (event: React.SyntheticEvent, value: any) => void;
+};
+export type TablePagingItemComps = {
+  totalLength: number;
+  currentPage: number;
+  rowsPerPage: number;
+  onChange: (event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null, page: number) => void;
 };
 export type LabelItemComps = { item: string };
 export type ChipsItemComps = { item: string };

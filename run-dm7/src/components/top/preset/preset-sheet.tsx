@@ -7,7 +7,7 @@ import {
   TableRecordShell,
   TableShell,
 } from "../utils/shell";
-import { CheckItem, InputItem, LabelItem, TabSelectItem } from "../utils/ui";
+import { CheckItem, InputItem, LabelItem, TablePagingItem, TabSelectItem } from "../utils/ui";
 
 interface PresetTemplatesFieldProps {
   props: Comps.PresetTemplatesFieldComps;
@@ -23,10 +23,13 @@ export function PresetTemplatesField({ props: { positive, negative } }: PresetTe
 interface PresetTableDataFieldProps {
   props: Comps.PresetTableDataFieldComps;
 }
-export function PresetTableDataField({ props: { selector, categories, directions } }: PresetTableDataFieldProps) {
+export function PresetTableDataField({
+  props: { selector, paginate, categories, directions },
+}: PresetTableDataFieldProps) {
   return (
     <FieldShell Column Flex={"CONTAIER"}>
       <TabSelectItem props={selector} />
+      <TablePagingItem props={paginate} />
       {categories && <PresetTableDataItem props={categories} />}
       {directions && <PresetTableDataItem props={directions} />}
     </FieldShell>
@@ -85,7 +88,7 @@ export function PresetTableBodies({ props: { itemList } }: PresetTableBodiesProp
 interface PresetTableRecordProps {
   props: Comps.PresetTableRecordComps;
 }
-export function PresetTableRecord({ props: { name, exclude, daleted } }: PresetTableRecordProps) {
+export function PresetTableRecord({ props: { name, exclude, deleted } }: PresetTableRecordProps) {
   return (
     <TableRecordShell>
       <TableCellShell>
@@ -95,7 +98,7 @@ export function PresetTableRecord({ props: { name, exclude, daleted } }: PresetT
         <CheckItem props={exclude} />
       </TableCellShell>
       <TableCellShell>
-        <CheckItem props={daleted} />
+        <CheckItem props={deleted} />
       </TableCellShell>
     </TableRecordShell>
   );
